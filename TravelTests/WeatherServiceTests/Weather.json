@@ -1,0 +1,81 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": 0.58,
+                "lat": 44.17
+            },
+            "sys": {
+                "country": "FR",
+                "timezone": 7200,
+                "sunrise": 1570687529,
+                "sunset": 1570728226
+            },
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "broken clouds",
+                    "icon": "04d"
+                }
+            ],
+            "main": {
+                "temp": 292.28,
+                "pressure": 1024,
+                "humidity": 72,
+                "temp_min": 290.37,
+                "temp_max": 294.82
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 1.5,
+                "deg": 280
+            },
+            "clouds": {
+                "all": 75
+            },
+            "dt": 1570706117,
+            "id": 3038633,
+            "name": "Arrondissement d'Agen"
+        },
+        {
+            "coord": {
+                "lon": -74.01,
+                "lat": 40.71
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1570705284,
+                "sunset": 1570746268
+            },
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "broken clouds",
+                    "icon": "04d"
+                }
+            ],
+            "main": {
+                "temp": 285.72,
+                "pressure": 1024,
+                "humidity": 66,
+                "temp_min": 284.82,
+                "temp_max": 286.48
+            },
+            "visibility": 16093,
+            "wind": {
+                "speed": 5.34,
+                "deg": 14.869
+            },
+            "clouds": {
+                "all": 75
+            },
+            "dt": 1570706038,
+            "id": 5128581,
+            "name": "New York"
+        }
+    ]
+}
