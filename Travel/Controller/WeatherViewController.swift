@@ -10,24 +10,40 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    @IBOutlet weak var newYorkLabel: UILabel!
+    // MARK: - Outlets
     
-    @IBOutlet weak var newYorkTempLabel: UILabel!
+    @IBOutlet private weak var newYorkTempLabel: UILabel!
     
-    @IBOutlet weak var newYorkDescriptionLabel: UILabel!
+    @IBOutlet private weak var newYorkDescriptionLabel: UILabel!
     
-    @IBOutlet weak var agenLabel: UILabel!
+    @IBOutlet private weak var agenTempLabel: UILabel!
     
-    @IBOutlet weak var agenTempLabel: UILabel!
+    @IBOutlet private weak var agenDescriptionLabel: UILabel!
     
-    @IBOutlet weak var agenDescriptionLabel: UILabel!
+    // MARK: - Properties
+    
+   private let weatherService = WeatherService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    @IBAction func didTapWeatherButton(_ sender: UIButton) {
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getWeather()
+        
+    }
+    
+   private func getWeather() {
+        weatherService.getWeather { (success, Weather) in
+            if success, let weather = Weather {
+                self.agenTempLabel.text = String(weather.list[0].main.temp) + " °C"
+                self.agenDescriptionLabel.text = weather.list[0].weather[0].weatherDescription
+                self.newYorkTempLabel.text = String(weather.list[1].main.temp) + " °C"
+                self.newYorkDescriptionLabel.text = weather.list[1].weather[0].weatherDescription
+            } else {
+                self.presentAlert(title: "Erreur", message: "Nous n'avons pas pu afficher la météo, veuillez réessayer")
+            }
+        }
     }
 }

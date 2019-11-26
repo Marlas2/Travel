@@ -1,3 +1,4 @@
+
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
@@ -7,29 +8,15 @@ import Foundation
 
 // MARK: - Weather
 struct Weather: Decodable {
+    let cnt: Int
     let list: [List]
 }
 
 // MARK: - List
 struct List: Decodable {
-    let sys: Sys
+
     let weather: [WeatherElement]
     let main: Main
-    let visibility: Int
-    let wind: Wind
-    let clouds: Clouds
-    let dt, id: Int
-    let name: String
-}
-
-// MARK: - Clouds
-struct Clouds: Decodable {
-    let all: Int
-}
-
-// MARK: - Coord
-struct Coord: Decodable {
-    let lon, lat: Double
 }
 
 // MARK: - Main
@@ -45,12 +32,6 @@ struct Main: Decodable {
     }
 }
 
-// MARK: - Sys
-struct Sys: Decodable {
-    let country: String
-    let timezone, sunrise, sunset: Int
-}
-
 // MARK: - WeatherElement
 struct WeatherElement: Decodable {
     let id: Int
@@ -61,9 +42,4 @@ struct WeatherElement: Decodable {
         case weatherDescription = "description"
         case icon
     }
-}
-
-// MARK: - Wind
-struct Wind: Decodable {
-    let speed, deg: Double
 }

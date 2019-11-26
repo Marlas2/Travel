@@ -21,7 +21,20 @@ class FakeResponseData {
         let data = try! Data(contentsOf: url!)
         return data
     }
+    static var weatherCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "Weather", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
     
-    static let exchangeIncorrectData = "erreur".data(using: .utf8)!
+    static var translateCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "Translate", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static let incorrectData = "erreur".data(using: .utf8)!
     
 }
