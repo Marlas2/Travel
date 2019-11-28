@@ -22,6 +22,7 @@ final class ExchangeRateViewController: UIViewController {
     
     private let exchangeRateService = ExchangeRateService()
     private var allRates = [String]()
+    /// This is the currency convertion
     private var currency = "AED"
     
     // MARK: - View Life Cycle
@@ -32,8 +33,10 @@ final class ExchangeRateViewController: UIViewController {
         ratesPickerView.delegate = self
         exchangeRateService.getSymbols { (success, symbols) in
             if success, let symbols = symbols {
-                self.allRates = symbols
-                self.ratesPickerView.reloadAllComponents()
+                DispatchQueue.main.async {
+                    self.allRates = symbols
+                    self.ratesPickerView.reloadAllComponents()
+                }
             }
         }
     }
@@ -44,15 +47,18 @@ final class ExchangeRateViewController: UIViewController {
         sumTextField.resignFirstResponder()
     }
     
+    /// Action to convert all money in euros when you tap the "Convert" button
     @IBAction private func didTapConvertButton(_ sender: UIButton) {
         toggleActivityIndicator(shown: true)
         guard let sumText = sumTextField.text else { return }
         guard let money = Float(sumText) else { return }
         exchangeRateService.getRate(currency: currency) { (success, rate) in
             if success, let rate = rate {
-                self.sumTextField.resignFirstResponder()
-                let currencies = (money * rate)
-                self.convertedSumLabel.text = "\(self.currency) : \(currencies)"
+                DispatchQueue.main.async {
+                    self.sumTextField.resignFirstResponder()
+                    let currencies = (money * rate)
+                    self.convertedSumLabel.text = "\(self.currency) : \(currencies)"
+                }
             } else {
                 self.presentAlert(title: "Erreur", message: "Impossible de convertir")
             }
@@ -60,17 +66,20 @@ final class ExchangeRateViewController: UIViewController {
         update(shown: true)
     }
     
+    /// Function that allows to stop the activity indicator's animation
     private func update(shown: Bool) {
         convertButton.isHidden = !shown
         rateActivityIndicator.stopAnimating()
     }
     
-    
+    /// Function that allows to start the activity indicator's animation
     private func toggleActivityIndicator(shown: Bool) {
         convertButton.isHidden = shown
         rateActivityIndicator.startAnimating()
     }
 }
+
+// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
 
 extension ExchangeRateViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     

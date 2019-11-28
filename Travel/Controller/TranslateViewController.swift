@@ -13,7 +13,6 @@ final class TranslateViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var frenchTextField: UITextField!
-    
     @IBOutlet private weak var englishTextField: UITextField!
     
     // MARK: - Properties
@@ -22,11 +21,13 @@ final class TranslateViewController: UIViewController {
     
     // MARK: - Actions
     
+    /// Function that allows to dismiss the keyboard if you tap anywhere on the screen
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-            frenchTextField.resignFirstResponder()
-            englishTextField.resignFirstResponder()
+        frenchTextField.resignFirstResponder()
+        englishTextField.resignFirstResponder()
     }
     
+    /// Action that allows to translate a text if you tap on the "Translate" button
     @IBAction private func didTapTranslateButton(_ sender: UIButton) {
         guard let text = frenchTextField.text else {
             return
@@ -34,9 +35,11 @@ final class TranslateViewController: UIViewController {
         translateService.getTranslate(source: "fr", target: "en", text: text) { (success, translate) in
             
             if success, let translate = translate {
-                self.frenchTextField.resignFirstResponder()
-                self.englishTextField.resignFirstResponder()
-                self.englishTextField.text = String(translate.data.translations[0].translatedText)
+                DispatchQueue.main.async {
+                    self.frenchTextField.resignFirstResponder()
+                    self.englishTextField.resignFirstResponder()
+                    self.englishTextField.text = String(translate.data.translations[0].translatedText)
+                }
             } else {
                 self.presentAlert(title: "Error", message: "Nous n'avons pas pu traduire !")
             }

@@ -88,7 +88,6 @@ class ExchangeRateServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeService.getRate(currency: "USD") { (success, rate) in
             // Then
-         
             XCTAssertFalse(success)
             XCTAssertNil(rate)
             expectation.fulfill()
@@ -102,7 +101,6 @@ class ExchangeRateServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeService.getSymbols { (success, currencies) in
             // Then
-         
             XCTAssertFalse(success)
             XCTAssertNil(currencies)
             expectation.fulfill()

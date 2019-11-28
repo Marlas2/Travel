@@ -7,39 +7,31 @@
 import Foundation
 
 // MARK: - Weather
+
 struct Weather: Decodable {
-    let cnt: Int
     let list: [List]
 }
 
 // MARK: - List
-struct List: Decodable {
 
+struct List: Decodable {
     let weather: [WeatherElement]
     let main: Main
 }
 
 // MARK: - Main
+
 struct Main: Decodable {
     let temp: Double
-    let pressure, humidity: Int
-    let tempMin, tempMax: Double
-
-    enum CodingKeys: String, CodingKey {
-        case temp, pressure, humidity
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-    }
 }
 
 // MARK: - WeatherElement
+
 struct WeatherElement: Decodable {
-    let id: Int
-    let main, weatherDescription, icon: String
+    let main, weatherDescription: String
 
     enum CodingKeys: String, CodingKey {
-        case id, main
+        case main
         case weatherDescription = "description"
-        case icon
     }
 }

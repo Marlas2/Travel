@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - Translate
+
 struct Exchange: Decodable {
     let rates: [String: Float]
 }

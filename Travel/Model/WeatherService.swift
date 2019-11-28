@@ -8,9 +8,9 @@
 
 import Foundation
 
-class WeatherService {
+final class WeatherService {
     
-    let apiKey = ApiKeysExtractor().apiKey.weather
+    let apiKey = ApiConfig.weather
     
     // MARK: - Properties
     
@@ -21,27 +21,25 @@ class WeatherService {
         self.weatherSession = weatherSession
     }
     
-    /// Permet d'envoyer une requête à l'API "OpenWeathermap" et renvoie sa réponse
+    /// Send a request to the API "OpenWeatherMap" and callback the response
     func getWeather(callback: @escaping (Bool, Weather?) -> Void) {
         let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/group?APPID=\(apiKey)&id=3038633,5128581&units=metric")
         dataTask?.cancel()
         guard let url = weatherUrl else { return }
         dataTask = weatherSession.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(false, nil)
-                    return
-                }
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil)
-                    return
-                }
-                guard let responseJSON = try? JSONDecoder().decode(Weather.self, from: data) else {
-                    callback(false, nil)
-                    return
-                }
-                callback(true, responseJSON)
+            guard let data = data, error == nil else {
+                callback(false, nil)
+                return
             }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                callback(false, nil)
+                return
+            }
+            guard let responseJSON = try? JSONDecoder().decode(Weather.self, from: data) else {
+                callback(false, nil)
+                return
+            }
+            callback(true, responseJSON)
         }
         dataTask?.resume()
     }

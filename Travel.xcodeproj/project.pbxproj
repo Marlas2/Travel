@@ -28,9 +28,8 @@
 		295E93DF2332415800BBF35B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295E93DD2332415800BBF35B /* LaunchScreen.storyboard */; };
 		295E93EB233241F500BBF35B /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E93EA233241F500BBF35B /* ExchangeRateService.swift */; };
 		295E93F123324BA700BBF35B /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E93F023324BA700BBF35B /* Exchange.swift */; };
+		297E4EDB238FB79700378FB0 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297E4EDA238FB79700378FB0 /* ApiConfig.swift */; };
 		29CB2FA023751D040048E7B0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB2F9F23751D040048E7B0 /* UIViewController.swift */; };
-		29CB2FA22375306F0048E7B0 /* Apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29CB2FA12375306F0048E7B0 /* Apikeys.plist */; };
-		29CB2FA6237537370048E7B0 /* ApiKeysExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB2FA5237537370048E7B0 /* ApiKeysExtractor.swift */; };
 		29D0BF19234AE45D00CF9C8A /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0BF18234AE45D00CF9C8A /* WeatherService.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,9 +69,8 @@
 		295E93E02332415800BBF35B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		295E93EA233241F500BBF35B /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = "<group>"; };
 		295E93F023324BA700BBF35B /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		297E4EDA238FB79700378FB0 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
 		29CB2F9F23751D040048E7B0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		29CB2FA12375306F0048E7B0 /* Apikeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Apikeys.plist; sourceTree = "<group>"; };
-		29CB2FA5237537370048E7B0 /* ApiKeysExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysExtractor.swift; sourceTree = "<group>"; };
 		29D0BF18234AE45D00CF9C8A /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,10 +95,9 @@
 		2912907523576941006BC96C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				29CB2FA12375306F0048E7B0 /* Apikeys.plist */,
 				294BD136236A7DBA00402DAD /* Assets.xcassets */,
 				295E93D42332415700BBF35B /* AppDelegate.swift */,
-				29CB2FA5237537370048E7B0 /* ApiKeysExtractor.swift */,
+				297E4EDA238FB79700378FB0 /* ApiConfig.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				295E93DF2332415800BBF35B /* LaunchScreen.storyboard in Resources */,
-				29CB2FA22375306F0048E7B0 /* Apikeys.plist in Resources */,
 				294BD137236A7DBA00402DAD /* Assets.xcassets in Resources */,
 				295E93DA2332415700BBF35B /* Main.storyboard in Resources */,
 			);
@@ -345,12 +341,12 @@
 			files = (
 				2912910A23613DB6006BC96C /* TranslateService.swift in Sources */,
 				2912910E23613E24006BC96C /* TranslateViewController.swift in Sources */,
-				29CB2FA6237537370048E7B0 /* ApiKeysExtractor.swift in Sources */,
 				295E93F123324BA700BBF35B /* Exchange.swift in Sources */,
 				290B6FF72338EF7200FB9911 /* ExchangeRateViewController.swift in Sources */,
 				295E93D52332415700BBF35B /* AppDelegate.swift in Sources */,
 				29CB2FA023751D040048E7B0 /* UIViewController.swift in Sources */,
 				295E93EB233241F500BBF35B /* ExchangeRateService.swift in Sources */,
+				297E4EDB238FB79700378FB0 /* ApiConfig.swift in Sources */,
 				2912910C23613DC8006BC96C /* Translate.swift in Sources */,
 				291290B923578401006BC96C /* WeatherViewController.swift in Sources */,
 				2909C7DE234EE3A900BF0128 /* Weather.swift in Sources */,

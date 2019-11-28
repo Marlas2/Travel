@@ -8,13 +8,12 @@
 
 import Foundation
 
-class FakeResponseData {
+final class FakeResponseData {
     static let responseOK = HTTPURLResponse(url: URL(string: "https://openclassrooms.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
     static let responseKO = HTTPURLResponse(url: URL(string: "https://openclassrooms.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)!
     
     class ExchangeError: Error {}
     static let error = ExchangeError()
-    
     static var exchangeCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Exchange", withExtension: "json")
@@ -27,14 +26,11 @@ class FakeResponseData {
         let data = try! Data(contentsOf: url!)
         return data
     }
-    
     static var translateCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Translate", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
-    
     static let incorrectData = "erreur".data(using: .utf8)!
-    
 }

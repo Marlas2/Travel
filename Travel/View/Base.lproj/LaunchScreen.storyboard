@@ -15,7 +15,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-6s-Wy9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBaluchon" translatesAutoresizingMaskIntoConstraints="NO" id="6z2-Js-eUW">
+                                <rect key="frame" x="87" y="389" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o5n-6s-Wy9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Nm-Fl-FuL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6z2-Js-eUW" secondAttribute="bottom" constant="345" id="9T3-Xg-l8r"/>
+                            <constraint firstItem="6z2-Js-eUW" firstAttribute="centerY" secondItem="o5n-6s-Wy9" secondAttribute="centerY" id="EdQ-pm-fe5"/>
+                            <constraint firstItem="o5n-6s-Wy9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ohu-lp-hfZ"/>
+                            <constraint firstItem="o5n-6s-Wy9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="S5E-vz-rSw"/>
+                            <constraint firstItem="6z2-Js-eUW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="WPC-oe-zKr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6z2-Js-eUW" secondAttribute="trailing" constant="87" id="ZmX-Uh-Rrg"/>
+                            <constraint firstItem="6z2-Js-eUW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="345" id="d6Q-hI-WoJ"/>
+                            <constraint firstItem="6z2-Js-eUW" firstAttribute="centerX" secondItem="o5n-6s-Wy9" secondAttribute="centerX" id="mlV-Q9-0bq"/>
+                            <constraint firstItem="o5n-6s-Wy9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ubf-RT-Mai"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -24,4 +44,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LauchScreenBackground" width="168" height="300"/>
+        <image name="LaunchScreenBaluchon" width="512" height="512"/>
+    </resources>
 </document>
