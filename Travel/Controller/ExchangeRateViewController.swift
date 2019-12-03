@@ -22,6 +22,7 @@ final class ExchangeRateViewController: UIViewController {
     
     private let exchangeRateService = ExchangeRateService()
     private var allRates = [String]()
+    
     /// This is the currency convertion
     private var currency = "AED"
     
@@ -47,7 +48,7 @@ final class ExchangeRateViewController: UIViewController {
         sumTextField.resignFirstResponder()
     }
     
-    /// Action to convert all money in euros when you tap the "Convert" button
+    /// Action to convert all money  when you tap the "Convert" button
     @IBAction private func didTapConvertButton(_ sender: UIButton) {
         toggleActivityIndicator(shown: true)
         guard let sumText = sumTextField.text else { return }

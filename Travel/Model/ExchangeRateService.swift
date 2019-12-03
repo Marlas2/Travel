@@ -46,7 +46,7 @@ final class ExchangeRateService {
     }
     
     func getSymbols(callback: @escaping (Bool, [String]?) -> Void) {
-        let fixerUrl = URL(string: "http://data.fixer.io/api/symbols?access_key=d595ac5936090b6eea37cd18e76aa86b")
+        let fixerUrl = URL(string: "http://data.fixer.io/api/symbols?access_key=\(apiKey)")
         dataTask?.cancel()
         guard let url = fixerUrl else { return }
         dataTask = rateSession.dataTask(with: url) { (data, response, error) in
@@ -62,10 +62,7 @@ final class ExchangeRateService {
                 callback(false, nil)
                 return
             }
-            var currencies = [String]()
-            responseJSON.symbols.forEach { (key, value) in
-                currencies.append(key)
-            }
+            let currencies = responseJSON.symbols.keys
             callback(true, currencies.sorted(by: <))
         }
         dataTask?.resume()
